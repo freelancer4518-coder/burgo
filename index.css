@@ -1,0 +1,280 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* BURGO Brand Colors - White + Blue Theme */
+    --burgo-blue: 210 100% 45%;
+    --burgo-blue-light: 210 100% 95%;
+    --burgo-blue-dark: 210 100% 35%;
+    --burgo-blue-bright: 210 100% 55%;
+    
+    --background: 0 0% 100%;
+    --foreground: 210 20% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 210 20% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 20% 15%;
+    --primary: 210 100% 45%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 100% 95%;
+    --secondary-foreground: 210 100% 45%;
+    --muted: 210 20% 96%;
+    --muted-foreground: 210 10% 45%;
+    --accent: 210 100% 95%;
+    --accent-foreground: 210 100% 45%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 210 20% 90%;
+    --input: 210 20% 90%;
+    --ring: 210 100% 45%;
+    --radius: 1rem;
+    
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 210 20% 15%;
+    --sidebar-primary: 210 100% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 100% 95%;
+    --sidebar-accent-foreground: 210 100% 45%;
+    --sidebar-border: 210 20% 90%;
+    --sidebar-ring: 210 100% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer components {
+  /* Playful Button Styles */
+  .btn-burgo {
+    @apply relative inline-flex items-center justify-center gap-2 px-6 py-3 font-semibold text-white bg-[#0074E4] rounded-2xl transition-all duration-200;
+    box-shadow: 0 4px 0 #005bb5, 0 8px 16px rgba(0, 116, 228, 0.3);
+  }
+  
+  .btn-burgo:hover {
+    @apply bg-[#0066cc];
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #005bb5, 0 12px 24px rgba(0, 116, 228, 0.4);
+  }
+  
+  .btn-burgo:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #005bb5, 0 4px 8px rgba(0, 116, 228, 0.3);
+  }
+  
+  .btn-burgo-outline {
+    @apply relative inline-flex items-center justify-center gap-2 px-6 py-3 font-semibold text-[#0074E4] bg-white border-2 border-[#0074E4] rounded-2xl transition-all duration-200;
+  }
+  
+  .btn-burgo-outline:hover {
+    @apply bg-[#0074E4] text-white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 116, 228, 0.25);
+  }
+  
+  /* Menu Card Styles */
+  .menu-card {
+    @apply relative bg-white rounded-3xl overflow-hidden transition-all duration-300;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  }
+  
+  .menu-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(0, 116, 228, 0.15);
+  }
+  
+  .menu-card-image {
+    @apply relative overflow-hidden;
+  }
+  
+  .menu-card-image img {
+    @apply transition-transform duration-500;
+  }
+  
+  .menu-card:hover .menu-card-image img {
+    transform: scale(1.08);
+  }
+  
+  /* Discount Badge */
+  .discount-badge {
+    @apply inline-flex items-center px-2.5 py-1 text-xs font-bold text-white bg-[#0074E4] rounded-full;
+  }
+  
+  /* Price Styles */
+  .price-mrp {
+    @apply text-sm text-gray-400 line-through;
+  }
+  
+  .price-selling {
+    @apply text-xl font-bold text-[#0074E4];
+  }
+  
+  /* Pattern Background */
+  .pattern-bg {
+    background-image: url('/assets/burgo-pattern.jpg');
+    background-size: 400px;
+    background-repeat: repeat;
+  }
+  
+  .pattern-bg-subtle {
+    background-image: url('/assets/burgo-pattern.jpg');
+    background-size: 400px;
+    background-repeat: repeat;
+    opacity: 0.06;
+  }
+  
+  /* Section Styles */
+  .section-container {
+    @apply w-full px-4 sm:px-6 lg:px-8 xl:px-12;
+  }
+  
+  /* Cart Drawer */
+  .cart-drawer {
+    @apply fixed inset-y-0 right-0 w-full sm:w-[420px] bg-white shadow-2xl transform transition-transform duration-300 ease-out z-50;
+  }
+  
+  .cart-drawer.closed {
+    transform: translateX(100%);
+  }
+  
+  .cart-drawer.open {
+    transform: translateX(0);
+  }
+  
+  /* Quantity Counter */
+  .qty-counter {
+    @apply inline-flex items-center gap-2 bg-gray-100 rounded-full px-2 py-1;
+  }
+  
+  .qty-btn {
+    @apply w-7 h-7 flex items-center justify-center rounded-full bg-white text-[#0074E4] font-bold shadow-sm transition-all duration-150 hover:bg-[#0074E4] hover:text-white hover:scale-110 active:scale-95;
+  }
+  
+  /* Slider Styles */
+  .slider-container {
+    @apply relative overflow-hidden rounded-3xl;
+  }
+  
+  .slider-slide {
+    @apply relative w-full h-full;
+  }
+  
+  /* Input Styles */
+  .input-burgo {
+    @apply w-full px-4 py-3 bg-gray-50 border-2 border-gray-100 rounded-xl text-gray-800 placeholder:text-gray-400 focus:outline-none focus:border-[#0074E4] focus:bg-white transition-all duration-200;
+  }
+  
+  /* Admin Card */
+  .admin-card {
+    @apply bg-white rounded-2xl p-6 shadow-sm border border-gray-100;
+  }
+  
+  /* Tab Styles */
+  .tab-burgo {
+    @apply px-4 py-2 text-sm font-medium text-gray-500 rounded-full transition-all duration-200 whitespace-nowrap;
+  }
+  
+  .tab-burgo.active {
+    @apply bg-[#0074E4] text-white;
+  }
+  
+  /* Scroll Reveal Animation */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  }
+  
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer utilities {
+  /* Custom Animations */
+  @keyframes bounce-subtle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+  }
+  
+  .animate-bounce-subtle {
+    animation: bounce-subtle 2s ease-in-out infinite;
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(0, 116, 228, 0.4); }
+    50% { box-shadow: 0 0 20px 8px rgba(0, 116, 228, 0.2); }
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  
+  @keyframes slide-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .animate-slide-up {
+    animation: slide-up 0.5s ease-out forwards;
+  }
+  
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-out forwards;
+  }
+  
+  @keyframes scale-in {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  
+  .animate-scale-in {
+    animation: scale-in 0.3s ease-out forwards;
+  }
+  
+  /* Stagger delays */
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+  
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Glass effect */
+  .glass {
+    @apply bg-white/80 backdrop-blur-md;
+  }
+  
+  /* Text gradient */
+  .text-gradient {
+    @apply bg-gradient-to-r from-[#0074E4] to-[#00A8E8] bg-clip-text text-transparent;
+  }
+}
